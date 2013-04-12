@@ -1,13 +1,3 @@
-/**
- * <p>Ketai Sensor Library for Android: http://KetaiProject.org</p>
- *
- * <p>Ketai Camera Features:
- * <ul>
- * <li>Interface for built-in camera</li>
- * <li></li>
- * </ul>
- * <p>Updated: 2012-10-21 Daniel Sauter/j.duran</p>
- */
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -19,14 +9,12 @@ KetaiCamera cam;
 byte[] values;
 DatagramSocket ds;
 
-
 void setup() {
   orientation(LANDSCAPE);
   imageMode(CENTER);
   frameRate(15);
   values = new byte[176*144];
   cam = new KetaiCamera(this, 176, 144, 15);  
-
   try {
     ds =  new DatagramSocket(5004);
   } 
@@ -36,7 +24,6 @@ void setup() {
 }
 
 void draw() {
-  //text(frameRate, 100, 100);
   image(cam, width/2, height/2, 640, 480);
 }
 
@@ -64,19 +51,14 @@ void onCameraPreviewEvent() {
     println("u1: " + e);
   }
   try {
-    // 192.168.1.51 
     byte[] val = ba.toByteArray();
-    // println("tamano: " + val.length );
-    ds.send( new DatagramPacket(val, val.length, InetAddress.getByName("192.168.1.50"), 5001));
-    //(byte[] buf, int length, InetAddress address, int port)
+    ds.send( new DatagramPacket(val, val.length, InetAddress.getByName("192.168.1.50"), 5001));   
   } 
   catch(Exception e) {
-    println("android: " + e);
-    //  e.printStackTrace();
+    println("android eeror on camera: " + e);
   }
 }
 
-// start/stop camera preview by tapping the screen
 void mousePressed()
 {
   if (cam.isStarted())

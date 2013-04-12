@@ -5,7 +5,7 @@ import java.net.InetAddress;
 DatagramSocket ds;
 
 byte[] espacio;
-byte[] rec ;
+byte[] rec;
 PImage temp;
 
 void setup() {  
@@ -42,6 +42,5 @@ void draw() {
     }
   }
   image(temp, 0,0);
-  text(frameRate, 300, 100);
 }
 
