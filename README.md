@@ -18,3 +18,4 @@ ports 5000 & 5001 can be change without troubles
 - MultiThread server using a ServerSocket to automatic port asignment.
 - UI control for select Server Wifi IP and others features.
 - Device to Device structures using Bitmap.Factory
+- Filters
